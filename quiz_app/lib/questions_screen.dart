@@ -15,7 +15,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
         'Questions Screen Placeholder',
         style: TextStyle(color: Colors.white, fontSize: 24),
       )
-    )
+    );
   }
 }
 
