@@ -14,55 +14,58 @@ class QuestionsSummary extends StatelessWidget {
           children: summaryData.map(
             (data) {
               final isCorrect = data['user_answer'] == data['correct_answer'];
-              return Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    width: 30,
-                    height: 30,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: isCorrect ? Colors.tealAccent : Colors.pinkAccent,
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                    child: Text(
-                      ((data['question_index'] as int) + 1).toString(),
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
+              return Card(
+                margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 5),
+                elevation: 4,
+                color: const Color.fromARGB(255, 0, 105, 92),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Icon(
+                        isCorrect ? Icons.check_circle : Icons.cancel,
+                        color: isCorrect ? Colors.greenAccent : Colors.redAccent,
+                        size: 30,
                       ),
-                    ),
+                      const SizedBox(width: 15),
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Q${(data['question_index'] as int) + 1}: ${data['question']}',
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            const SizedBox(height: 8),
+                            Text(
+                              'Your Answer: ${data['user_answer']}',
+                              style: TextStyle(
+                                color: isCorrect ? Colors.greenAccent : Colors.redAccent,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            if (!isCorrect)
+                              Text(
+                                'Correct Answer: ${data['correct_answer']}',
+                                style: const TextStyle(
+                                  color: Colors.white70,
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  const SizedBox(width: 20),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          data['question'] as String,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 5),
-                        Text(
-                          data['user_answer'] as String,
-                          style: const TextStyle(
-                            color: Color.fromARGB(255, 202, 171, 252),
-                          ),
-                        ),
-                        Text(
-                          data['correct_answer'] as String,
-                          style: const TextStyle(
-                            color: Colors.tealAccent,
-                          ),
-                        ),
-                        const SizedBox(height: 15),
-                      ],
-                    ),
-                  ),
-                ],
+                ),
               );
             },
           ).toList(),

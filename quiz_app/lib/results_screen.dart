@@ -38,29 +38,46 @@ class ResultsScreen extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: Container(
-        margin: const EdgeInsets.all(40),
+        margin: const EdgeInsets.all(30),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'You answered $numCorrectQuestions out of $numTotalQuestions questions correctly!',
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+            Container(
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(color: Colors.tealAccent, width: 2),
               ),
-              textAlign: TextAlign.center,
+              child: Text(
+                'Awesome job!\nYou scored $numCorrectQuestions out of $numTotalQuestions!',
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w900,
+                ),
+                textAlign: TextAlign.center,
+              ),
             ),
             const SizedBox(height: 30),
             QuestionsSummary(summaryData),
             const SizedBox(height: 30),
-            TextButton.icon(
+            ElevatedButton.icon(
               onPressed: onRestart,
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.tealAccent,
+                foregroundColor: Colors.teal[900],
+                padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 15),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                elevation: 5,
               ),
-              icon: const Icon(Icons.refresh),
-              label: const Text('Restart Quiz!'),
+              icon: const Icon(Icons.replay_circle_filled, size: 28),
+              label: const Text(
+                'Take Quiz Again',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
             )
           ],
         ),
