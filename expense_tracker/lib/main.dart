@@ -8,15 +8,16 @@ var kColorScheme = ColorScheme.fromSeed(
 void main() {
   runApp(
     MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData().copyWith(
         colorScheme: kColorScheme,
         appBarTheme: const AppBarTheme().copyWith(
           backgroundColor: kColorScheme.onPrimaryContainer,
           foregroundColor: kColorScheme.primaryContainer,
         ),
-        cardTheme: CardThemeData(
+        cardTheme: const CardThemeData(
           color: kColorScheme.secondaryContainer,
-          margin: const EdgeInsets.symmetric(
+          margin: EdgeInsets.symmetric(
             horizontal: 16,
             vertical: 8,
           ),

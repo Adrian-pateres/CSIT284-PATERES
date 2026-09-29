@@ -40,12 +40,6 @@ class _ExpensesState extends State<Expenses> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Expense Tracker'),
-        actions: [
-          IconButton(
-            onPressed: _openAddExpenseOverlay,
-            icon: const Icon(Icons.add),
-          )
-        ],
       ),
       body: Column(
         children: [
@@ -54,6 +48,10 @@ class _ExpensesState extends State<Expenses> {
             child: ExpensesList(expenses: _registeredExpenses),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _openAddExpenseOverlay,
+        child: const Icon(Icons.add),
       ),
     );
   }
