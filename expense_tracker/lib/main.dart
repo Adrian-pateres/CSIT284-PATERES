@@ -15,9 +15,9 @@ void main() {
           backgroundColor: kColorScheme.onPrimaryContainer,
           foregroundColor: kColorScheme.primaryContainer,
         ),
-        cardTheme: const CardThemeData(
+        cardTheme: CardThemeData(
           color: kColorScheme.secondaryContainer,
-          margin: EdgeInsets.symmetric(
+          margin: const EdgeInsets.symmetric(
             horizontal: 16,
             vertical: 8,
           ),
