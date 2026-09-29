@@ -18,7 +18,6 @@ void main() {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           
-          // Light Theme Set-up
           theme: ThemeData().copyWith(
             colorScheme: kColorScheme,
             appBarTheme: const AppBarTheme().copyWith(
