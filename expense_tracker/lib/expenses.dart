@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:expense_tracker/models/expense.dart';
+import 'package:expense_tracker/widgets/expenses_list.dart';
 
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
@@ -13,7 +14,7 @@ class Expenses extends StatefulWidget {
 class _ExpensesState extends State<Expenses> {
   final List<Expense> _registeredExpenses = [
     Expense(
-      title: 'Fee for Maxim',
+      title: 'Maxim Ride',
       amount: 65.00,
       date: DateTime.now(),
       category: Category.travel,
@@ -33,23 +34,16 @@ class _ExpensesState extends State<Expenses> {
         title: const Text('My Expense Tracker'),
         actions: [
           IconButton(
-            onPressed: () {
-            },
+            onPressed: () {},
             icon: const Icon(Icons.add),
           )
         ],
       ),
       body: Column(
         children: [
-          const Text('Chart Here!'),
+          const Text('Chart goes here...'),
           Expanded(
-            child: ListView.builder(
-              itemCount: _registeredExpenses.length,
-              itemBuilder: (context, index) => ListTile(
-                title: Text(_registeredExpenses[index].title),
-                subtitle: Text('₱${_registeredExpenses[index].amount.toStringAsFixed(2)}'),
-              ),
-            ),
+            child: ExpensesList(expenses: _registeredExpenses),
           ),
         ],
       ),
