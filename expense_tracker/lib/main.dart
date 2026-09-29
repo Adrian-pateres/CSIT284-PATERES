@@ -27,6 +27,7 @@ void main() {
             backgroundColor: kColorScheme.primaryContainer,
           ),
         ),
+        textTheme: ThemeData().textTheme.apply(fontFamily: 'Lato'),
       ),
       home: const Expenses(),
     ),
