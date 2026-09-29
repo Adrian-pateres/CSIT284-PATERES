@@ -5,31 +5,64 @@ var kColorScheme = ColorScheme.fromSeed(
   seedColor: const Color.fromARGB(255, 96, 59, 181),
 );
 
+var kDarkColorScheme = ColorScheme.fromSeed(
+  brightness: Brightness.dark,
+  seedColor: const Color.fromARGB(255, 5, 99, 125),
+);
+
 void main() {
   runApp(
-    MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData().copyWith(
-        colorScheme: kColorScheme,
-        appBarTheme: const AppBarTheme().copyWith(
-          backgroundColor: kColorScheme.onPrimaryContainer,
-          foregroundColor: kColorScheme.primaryContainer,
-        ),
-        cardTheme: CardThemeData(
-          color: kColorScheme.secondaryContainer,
-          margin: const EdgeInsets.symmetric(
-            horizontal: 16,
-            vertical: 8,
+    ValueListenableBuilder<ThemeMode>(
+      valueListenable: themeNotifier,
+      builder: (_, ThemeMode currentMode, _) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          
+          // Light Theme Set-up
+          theme: ThemeData().copyWith(
+            colorScheme: kColorScheme,
+            appBarTheme: const AppBarTheme().copyWith(
+              backgroundColor: kColorScheme.onPrimaryContainer,
+              foregroundColor: kColorScheme.primaryContainer,
+            ),
+            cardTheme: CardThemeData(
+              color: kColorScheme.secondaryContainer,
+              margin: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 8,
+              ),
+            ),
+            elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: kColorScheme.primaryContainer,
+              ),
+            ),
+            textTheme: ThemeData().textTheme.apply(fontFamily: 'Lato'),
           ),
-        ),
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            backgroundColor: kColorScheme.primaryContainer,
+          
+          darkTheme: ThemeData.dark().copyWith(
+            colorScheme: kDarkColorScheme,
+            cardTheme: CardThemeData(
+              color: kDarkColorScheme.secondaryContainer,
+              margin: const EdgeInsets.symmetric(
+                horizontal: 16,
+                vertical: 8,
+              ),
+            ),
+            elevatedButtonTheme: ElevatedButtonThemeData(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: kDarkColorScheme.primaryContainer,
+                foregroundColor: kDarkColorScheme.onPrimaryContainer,
+              ),
+            ),
+            textTheme: ThemeData().textTheme.apply(fontFamily: 'Lato'),
           ),
-        ),
-        textTheme: ThemeData().textTheme.apply(fontFamily: 'Lato'),
-      ),
-      home: const Expenses(),
+          
+          themeMode: currentMode,
+          
+          home: const Expenses(),
+        );
+      },
     ),
   );
 }

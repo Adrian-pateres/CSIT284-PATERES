@@ -4,6 +4,8 @@ import 'package:expense_tracker/widgets/expenses_list.dart';
 import 'package:expense_tracker/widgets/new_expense.dart';
 import 'package:expense_tracker/widgets/chart/chart.dart';
 
+final ValueNotifier<ThemeMode> themeNotifier = ValueNotifier(ThemeMode.light);
+
 class Expenses extends StatefulWidget {
   const Expenses({super.key});
 
@@ -83,6 +85,20 @@ class _ExpensesState extends State<Expenses> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Expense Tracker'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              themeNotifier.value = themeNotifier.value == ThemeMode.light 
+                  ? ThemeMode.dark 
+                  : ThemeMode.light;
+            },
+            icon: Icon(
+              themeNotifier.value == ThemeMode.light 
+                  ? Icons.dark_mode 
+                  : Icons.light_mode,
+            ),
+          ),
+        ],
       ),
       body: Column(
         children: [
