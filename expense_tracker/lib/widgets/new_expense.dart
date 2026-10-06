@@ -86,7 +86,7 @@ class _NewExpenseState extends State<NewExpense> {
       Expense(
         title: _titleController.text,
         amount: enteredAmount,
-        date: _selectedDate!,
+        date: _selectedDate!, 
         category: _selectedCategory,
       ),
     );
@@ -149,6 +149,7 @@ class _NewExpenseState extends State<NewExpense> {
                         label: Text('Title'),
                       ),
                     ),
+                    
                   if (width >= 600)
                     Row(
                       children: [
@@ -207,6 +208,7 @@ class _NewExpenseState extends State<NewExpense> {
                           ),
                         ),
                         const SizedBox(width: 16),
+                        // Date Picker
                         Expanded(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
@@ -226,10 +228,33 @@ class _NewExpenseState extends State<NewExpense> {
                         ),
                       ],
                     ),
+                    
                   const SizedBox(height: 16),
-                  if (width >= 600)
+                  
+                  if (width < 600)
                     Row(
                       children: [
+                        DropdownButton(
+                          value: _selectedCategory,
+                          items: Category.values
+                              .map(
+                                (category) => DropdownMenuItem(
+                                  value: category,
+                                  child: Text(
+                                    category.name.toUpperCase(),
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                          onChanged: (value) {
+                            if (value == null) {
+                              return;
+                            }
+                            setState(() {
+                              _selectedCategory = value;
+                            });
+                          },
+                        ),
                         const Spacer(),
                         TextButton(
                           onPressed: () {
