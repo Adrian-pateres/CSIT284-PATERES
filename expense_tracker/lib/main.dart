@@ -14,7 +14,7 @@ void main() {
   runApp(
     ValueListenableBuilder<ThemeMode>(
       valueListenable: themeNotifier,
-      builder: (_, ThemeMode currentMode, _) {
+      builder: (context, ThemeMode currentMode, child) {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           
