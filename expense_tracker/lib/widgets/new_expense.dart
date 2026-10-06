@@ -103,6 +103,7 @@ class _NewExpenseState extends State<NewExpense> {
   @override
   Widget build(BuildContext context) {
     final keyboardSpace = MediaQuery.of(context).viewInsets.bottom;
+    final textColor = Theme.of(context).colorScheme.onSurface;
 
     return SafeArea(
       child: LayoutBuilder(builder: (ctx, constraints) {
@@ -155,12 +156,14 @@ class _NewExpenseState extends State<NewExpense> {
                       children: [
                         DropdownButton(
                           value: _selectedCategory,
+                          dropdownColor: Theme.of(context).colorScheme.surface,
                           items: Category.values
                               .map(
                                 (category) => DropdownMenuItem(
                                   value: category,
                                   child: Text(
                                     category.name.toUpperCase(),
+                                    style: TextStyle(color: textColor),
                                   ),
                                 ),
                               )
@@ -184,6 +187,7 @@ class _NewExpenseState extends State<NewExpense> {
                                 _selectedDate == null
                                     ? 'No date selected'
                                     : '${_selectedDate!.month}/${_selectedDate!.day}/${_selectedDate!.year}',
+                                style: TextStyle(color: textColor),
                               ),
                               IconButton(
                                 onPressed: _presentDatePicker,
@@ -208,7 +212,6 @@ class _NewExpenseState extends State<NewExpense> {
                           ),
                         ),
                         const SizedBox(width: 16),
-                        // Date Picker
                         Expanded(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
@@ -218,6 +221,7 @@ class _NewExpenseState extends State<NewExpense> {
                                 _selectedDate == null
                                     ? 'No date selected'
                                     : '${_selectedDate!.month}/${_selectedDate!.day}/${_selectedDate!.year}',
+                                style: TextStyle(color: textColor),
                               ),
                               IconButton(
                                 onPressed: _presentDatePicker,
@@ -236,12 +240,14 @@ class _NewExpenseState extends State<NewExpense> {
                       children: [
                         DropdownButton(
                           value: _selectedCategory,
+                          dropdownColor: Theme.of(context).colorScheme.surface,
                           items: Category.values
                               .map(
                                 (category) => DropdownMenuItem(
                                   value: category,
                                   child: Text(
                                     category.name.toUpperCase(),
+                                    style: TextStyle(color: textColor),
                                   ),
                                 ),
                               )
