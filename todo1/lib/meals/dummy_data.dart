@@ -62,7 +62,7 @@ const dummyMeals = [
     title: 'Creamy Garlic Pasta',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
-    imageUrl: 'https://images.unsplash.com/photo-1621996346565-e3d5d6281298?w=600',
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaF8J5ueN7larmYRn4LRv3FZPLL8jMIzkc3DJq3-YdNqV5szSbcDpoNLY&s=10',
     duration: 20,
     ingredients: [
       '250g Pasta',
@@ -87,7 +87,7 @@ const dummyMeals = [
     title: 'Classic Double Cheeseburger',
     affordability: Affordability.pricey,
     complexity: Complexity.simple,
-    imageUrl: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600',
+    imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOVNu_N9odNvfciNW5JExL0Xq2mxr4sM7wD6UPkOd2xIDp6f8f6zwQKnE&s=10',
     duration: 25,
     ingredients: [
       '300g Ground Beef',
@@ -112,7 +112,7 @@ const dummyMeals = [
     title: 'Crispy Herb Schnitzel',
     affordability: Affordability.luxurious,
     complexity: Complexity.challenging,
-    imageUrl: 'https://images.unsplash.com/photo-1599921841143-819065a55cc6?w=600',
+    imageUrl: 'https://simply-delicious-food.com/wp-content/uploads/2019/09/Chicken-schnitzel-1.jpg.webp',
     duration: 45,
     ingredients: [
       '2 Pork Cutlets',
@@ -137,7 +137,7 @@ const dummyMeals = [
     title: 'Tropical Citrus Salad',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
-    imageUrl: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=600',
+    imageUrl: 'https://www.themediterraneandish.com/wp-content/uploads/2024/01/Citrus-Salad-8.jpg',
     duration: 15,
     ingredients: [
       'Mixed Greens',
@@ -162,7 +162,7 @@ const dummyMeals = [
     title: 'Berry Brioche French Toast',
     affordability: Affordability.affordable,
     complexity: Complexity.simple,
-    imageUrl: 'https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600',
+    imageUrl: 'https://www.kimscravings.com/wp-content/uploads/2023/02/brioche-french-toast-featured.jpg',
     duration: 20,
     ingredients: [
       '4 Slices Brioche',
