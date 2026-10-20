@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'meals/screens/tabs.dart';
+import 'meals/screens/statistics.dart';
+import 'meals/screens/about.dart';
 
 final theme = ThemeData(
   useMaterial3: true,
@@ -22,6 +24,10 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: theme,
       home: const TabsScreen(),
+      routes: {
+        '/statistics': (ctx) => const StatisticsScreen(),
+        '/about': (ctx) => const AboutScreen(),
+      },
     );
   }
 }

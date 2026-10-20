@@ -79,6 +79,41 @@ class MainDrawer extends StatelessWidget {
               onSelectScreen('filters');
             },
           ),
+          const Divider(),
+          ListTile(
+            leading: Icon(
+              Icons.bar_chart,
+              size: 26,
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
+            title: Text(
+              'Statistics',
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                    fontSize: 24,
+                  ),
+            ),
+            onTap: () {
+              onSelectScreen('statistics');
+            },
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.info_outline,
+              size: 26,
+              color: Theme.of(context).colorScheme.onSurface,
+            ),
+            title: Text(
+              'About',
+              style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                    color: Theme.of(context).colorScheme.onSurface,
+                    fontSize: 24,
+                  ),
+            ),
+            onTap: () {
+              onSelectScreen('about');
+            },
+          ),
         ],
       ),
     );

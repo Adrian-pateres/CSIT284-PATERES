@@ -72,6 +72,10 @@ class _TabsScreenState extends State<TabsScreen> {
       setState(() {
         _selectedFilters = result ?? kInitialFilters;
       });
+    } else if (identifier == 'statistics') {
+      Navigator.of(context).pushNamed('/statistics');
+    } else if (identifier == 'about') {
+      Navigator.of(context).pushNamed('/about');
     }
   }
 
